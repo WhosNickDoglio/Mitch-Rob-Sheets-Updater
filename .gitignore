@@ -1,3 +1,4 @@
 # Project exclude paths
 /venv/
 /sheets/service_account.json
+/basketball_monster/geckodriver.log
