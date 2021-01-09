@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "${{ secrets.ACCOUNT_SERVICE }}" > service_account.json.asc
           sudo mkdir -p -- "/.config/gspread/"
-          gpg -d -passphrase "${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --batch service_account.json.asc > /.config/gspread/service_account.json
+          sudo gpg -d -passphrase "${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --batch service_account.json.asc > /.config/gspread/service_account.json
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
