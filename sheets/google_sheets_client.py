@@ -1,6 +1,6 @@
 #  MIT License
 #
-#  Copyright (c) 2020. Nicholas Doglio
+#  Copyright (c) 2021 Nicholas Doglio
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -19,17 +19,38 @@
 #  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
+import gspread
+from sheets.player_row_info import PlayerRowInfo
 
-__SPREADSHEET_ID = "1i63OVxgPXgNQBIquEAY8EazzrZMMwsUoXL8S3tSDfsk"
+SHEET_NAME = "Mitchell Robinson Fan Club"
 
 
-# TODO need to clear data rows before updating to avoid any conflicts
 class GoogleSheetsClient:
+    def __init__(self):
+        self.client = gspread.service_account(filename="../sheets/service_account.json")
+        self.sheet = self.client.open(SHEET_NAME)
+        print("Opening " + SHEET_NAME)
 
-    @staticmethod
-    def __create_credentials():
-        print("Hello World")
+    def update_main_data_sheet(self, data: [PlayerRowInfo]):
+        """
+        Updates the Main Data sheet in the Mitchell Robinson League Google Sheet.
 
-    @staticmethod
-    def update_sheet():
-        print("Hello World")
+
+        :param data: a list of player data
+        """
+        worksheet = self.sheet.worksheet("Main Data")
+
+        current_cell_count = len(worksheet.get_all_records())
+        print("Number of current player rows: " + str(current_cell_count))
+
+        # Clear player data to prevent any weird data conflicts
+        if current_cell_count > 1:
+            self.sheet.values_clear("'Main Data'!A2:AB")
+
+        # converts each item in the list to a list of it's own properties so it's readable for the API
+        list_of_lists = list(map(lambda player: list(vars(player).values()), data))
+
+        print("Updating Google Sheet.")
+
+        # update the worksheet with player data
+        worksheet.insert_rows(list_of_lists, 2)

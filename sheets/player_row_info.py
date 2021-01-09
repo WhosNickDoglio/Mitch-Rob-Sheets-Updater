@@ -1,6 +1,6 @@
 #  MIT License
 #
-#  Copyright (c) 2020. Nicholas Doglio
+#  Copyright (c) 2021 Nicholas Doglio
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,10 @@
 #  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
+from util.auto_str import auto_str
 
+
+@auto_str
 class PlayerRowInfo:
     """
     A class used to represent the given player data from the
@@ -28,37 +31,36 @@ class PlayerRowInfo:
     Taken from `<https://basketballmonster.com/playerrankings.aspx>`
     """
 
-    # TODO think about more strongly typing this
     def __init__(
-            self,
-            name: str,
-            rank: int,
-            value: int,
-            position: str,
-            team: str,
-            injury: str,
-            games_played: int,
-            minutes_per_game: float,
-            points_per_game: float,
-            three_pointers_per_game: float,
-            rebounds_per_game: float,
-            assists_per_game: float,
-            steals_per_game: float,
-            blocks_per_game: float,
-            field_goal_shooting_percent: float,
-            field_goal_attempts_per_game: float,
-            free_throw_shooting_percent: float,
-            free_throw_attempts_per_game: float,
-            turnovers_per_game: float,
-            points_value: float,
-            three_point_value: float,
-            rebounds_value: float,
-            assists_value: float,
-            steals_value: float,
-            blocks_value: float,
-            field_goal_shooting_percent_value: float,
-            free_throw_shooting_percent_value: float,
-            turnover_value: float,
+        self,
+        name: str,
+        rank: int,
+        value: int,
+        position: str,
+        team: str,
+        injury: str,
+        games_played: int,
+        minutes_per_game: float,
+        points_per_game: float,
+        three_pointers_per_game: float,
+        rebounds_per_game: float,
+        assists_per_game: float,
+        steals_per_game: float,
+        blocks_per_game: float,
+        field_goal_shooting_percent: float,
+        field_goal_attempts_per_game: float,
+        free_throw_shooting_percent: float,
+        free_throw_attempts_per_game: float,
+        turnovers_per_game: float,
+        points_value: float,
+        three_point_value: float,
+        rebounds_value: float,
+        assists_value: float,
+        steals_value: float,
+        blocks_value: float,
+        field_goal_shooting_percent_value: float,
+        free_throw_shooting_percent_value: float,
+        turnover_value: float,
     ):
         """
         Parameters
@@ -160,13 +162,3 @@ class PlayerRowInfo:
         self.field_goal_shooting_percent_value = field_goal_shooting_percent_value
         self.free_throw_shooting_percent_value = free_throw_shooting_percent_value
         self.turnover_value = turnover_value
-
-    def __str__(self):
-        # TODO do this for all attributes
-        return "Name: " + self.name + \
-               " Position: " + self.position + \
-               " Team: " + self.team + \
-               " Injury: " + self.injury + \
-               " Games Played: " + self.games_played + \
-               " m/g " + self.minutes_per_game + \
-               " p/g " + self.points_per_game

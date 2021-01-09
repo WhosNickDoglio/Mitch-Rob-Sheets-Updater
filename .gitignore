@@ -1,2 +1,3 @@
 # Project exclude paths
 /venv/
+/sheets/service_account.json

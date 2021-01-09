@@ -1,6 +1,6 @@
 #  MIT License
 #
-#  Copyright (c) 2020. Nicholas Doglio
+#  Copyright (c) 2021 Nicholas Doglio
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -20,18 +20,30 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from basketball_monster.scraper import BasketballMonsterWebScraper
 import player_data_converter
+from basketball_monster.scraper import BasketballMonsterWebScraper
+from sheets.google_sheets_client import GoogleSheetsClient
 
 
 def main():
+    """
+     Main Script for updating our Google Sheet with data from Basketball Monster.
+    """
+
+    client = GoogleSheetsClient()
     scraper = BasketballMonsterWebScraper()
+
     data = scraper.parse_data()
 
-    player_info = map(player_data_converter.convert_element_to_player_info, data)
+    print("Pulling player data from HTML elements.")
+    player_info = list(map(player_data_converter.convert_element_to_player_info, data))
 
-    for player in player_info:
-        print(player)
+    num_of_players = len(player_info)
+
+    print("Number of players to be added to Sheet: " + str(num_of_players))
+
+    if num_of_players > 1:
+        client.update_main_data_sheet(player_info)
 
 
 if __name__ == "__main__":

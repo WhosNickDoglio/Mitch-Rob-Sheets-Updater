@@ -1,6 +1,6 @@
 #  MIT License
 #
-#  Copyright (c) 2020. Nicholas Doglio
+#  Copyright (c) 2021 Nicholas Doglio
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -42,12 +42,13 @@ class BasketballMonsterWebScraper:
         opts.headless = True
         self.browser = Firefox(options=opts)
         self.browser.get("https://basketballmonster.com/playerrankings.aspx")
+        print("Initializing Web Scraper")
 
     def parse_data(self) -> list[WebElement]:
         """
         Scrapes through the pages HTML and pulls out the player ranking table data.
 
-        :return: something interesting
+        :return: a list of WebElements that are rows of player data.
         """
 
         filter_element = self.browser.find_element_by_id("PlayerFilterControl")
@@ -60,6 +61,4 @@ class BasketballMonsterWebScraper:
 
         rows = table.find_elements_by_tag_name("tr")
 
-        my_list = list(filter(lambda data: not str(data.text).startswith("Round"), rows))
-
-        return my_list
+        return list(filter(lambda data: not str(data.text).startswith("Round"), rows))

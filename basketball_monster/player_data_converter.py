@@ -1,6 +1,6 @@
 #  MIT License
 #
-#  Copyright (c) 2020. Nicholas Doglio
+#  Copyright (c) 2021 Nicholas Doglio
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a copy
 #  of this software and associated documentation files (the "Software"), to deal
@@ -25,9 +25,15 @@ from sheets.player_row_info import PlayerRowInfo
 
 
 def convert_element_to_player_info(element: WebElement) -> PlayerRowInfo:
+    """
+    Converts the raw HTML containing player data into a PlayerRowInfo data class.
+
+    :param element: An WebElement that contains the player data from a row.
+    :return: PlayerRowInfo
+    """
     data_columns = element.find_elements_by_tag_name("td")
 
-    return PlayerRowInfo(
+    player = PlayerRowInfo(
         name=data_columns[3].text,
         rank=data_columns[1].text,
         value=data_columns[2].text,
@@ -57,3 +63,7 @@ def convert_element_to_player_info(element: WebElement) -> PlayerRowInfo:
         free_throw_shooting_percent_value=data_columns[27].text,
         turnover_value=data_columns[28].text,
     )
+
+    print(player)
+
+    return player
