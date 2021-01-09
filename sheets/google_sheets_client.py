@@ -27,7 +27,7 @@ SHEET_NAME = "Mitchell Robinson Fan Club"
 
 class GoogleSheetsClient:
     def __init__(self):
-        self.client = gspread.service_account(filename="../service_account.json")
+        self.client = gspread.service_account()
         self.sheet = self.client.open(SHEET_NAME)
         print("Opening " + SHEET_NAME)
 

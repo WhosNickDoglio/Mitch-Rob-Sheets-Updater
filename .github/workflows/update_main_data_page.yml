@@ -25,7 +25,7 @@ jobs:
       - name: Decrypt Secret
         run: |
           echo "${{ secrets.ACCOUNT_SERVICE }}" > service_account.json.asc
-          gpg -d -passphrase "${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --batch service_account.json.asc > service_account.json
+          gpg -d -passphrase "${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --batch service_account.json.asc > /.config/gspread/service_account.json
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
