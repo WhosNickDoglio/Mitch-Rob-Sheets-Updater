@@ -19,15 +19,12 @@
 #  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
-import os
-
 from basketball_monster.player_data_converter import convert_element_to_player_info
 from basketball_monster.scraper import BasketballMonsterWebScraper
 from sheets.google_sheets_client import GoogleSheetsClient
 
 
 def main():
-    print(os.getcwd())
     """
      Main Script for updating our Google Sheet with data from Basketball Monster.
     """
