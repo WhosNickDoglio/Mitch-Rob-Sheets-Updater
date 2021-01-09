@@ -20,7 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-import player_data_converter
+from basketball_monster.player_data_converter import convert_element_to_player_info
 from basketball_monster.scraper import BasketballMonsterWebScraper
 from sheets.google_sheets_client import GoogleSheetsClient
 
@@ -36,7 +36,7 @@ def main():
     data = scraper.parse_data()
 
     print("Pulling player data from HTML elements.")
-    player_info = list(map(player_data_converter.convert_element_to_player_info, data))
+    player_info = list(map(convert_element_to_player_info, data))
 
     num_of_players = len(player_info)
 

@@ -37,5 +37,5 @@ jobs:
           tar -xzf geckodriver-v0.28.0-linux64.tar.gz -C geckodriver
           export PATH=$PATH:$PWD/geckodriver
       - name: Run script to update Sheets
-        run: python basketball_monster/basketball_monster_main.py
+        run: python -m basketball_monster.basketball_monster_main
 
