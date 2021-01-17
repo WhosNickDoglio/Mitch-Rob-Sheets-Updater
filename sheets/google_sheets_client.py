@@ -26,7 +26,16 @@ SHEET_NAME = "Mitchell Robinson Fan Club"
 
 
 class GoogleSheetsClient:
+    """
+    A class that is responsble for interacting the with Google Sheets API.
+    """
+
     def __init__(self, filename: str):
+        """
+        Creates an instance of the GoogleSheetsClient.
+
+        :param filename: a file path that points to a service_account.json file.
+        """
         self.client = gspread.service_account(filename=filename)
         self.sheet = self.client.open(SHEET_NAME)
         print("Opening " + SHEET_NAME)

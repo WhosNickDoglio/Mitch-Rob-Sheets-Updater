@@ -22,7 +22,7 @@
 from util.auto_str import auto_str
 
 
-@auto_str
+@auto_str  # this is an annotation that will create a full __str__ method for us to make logging more informative.
 class PlayerRowInfo:
     """
     A class used to represent the given player data from the
@@ -32,35 +32,35 @@ class PlayerRowInfo:
     """
 
     def __init__(
-            self,
-            name: str,
-            rank: int,
-            value: float,
-            position: str,
-            team: str,
-            injury: str,
-            games_played: int,
-            minutes_per_game: float,
-            points_per_game: float,
-            three_pointers_per_game: float,
-            rebounds_per_game: float,
-            assists_per_game: float,
-            steals_per_game: float,
-            blocks_per_game: float,
-            field_goal_shooting_percent: float,
-            field_goal_attempts_per_game: float,
-            free_throw_shooting_percent: float,
-            free_throw_attempts_per_game: float,
-            turnovers_per_game: float,
-            points_value: float,
-            three_point_value: float,
-            rebounds_value: float,
-            assists_value: float,
-            steals_value: float,
-            blocks_value: float,
-            field_goal_shooting_percent_value: float,
-            free_throw_shooting_percent_value: float,
-            turnover_value: float,
+        self,
+        name: str,
+        rank: int,
+        value: float,
+        position: str,
+        team: str,
+        injury: str,
+        games_played: int,
+        minutes_per_game: float,
+        points_per_game: float,
+        three_pointers_per_game: float,
+        rebounds_per_game: float,
+        assists_per_game: float,
+        steals_per_game: float,
+        blocks_per_game: float,
+        field_goal_shooting_percent: float,
+        field_goal_attempts_per_game: float,
+        free_throw_shooting_percent: float,
+        free_throw_attempts_per_game: float,
+        turnovers_per_game: float,
+        points_value: float,
+        three_point_value: float,
+        rebounds_value: float,
+        assists_value: float,
+        steals_value: float,
+        blocks_value: float,
+        field_goal_shooting_percent_value: float,
+        free_throw_shooting_percent_value: float,
+        turnover_value: float,
     ):
         """
         Parameters
