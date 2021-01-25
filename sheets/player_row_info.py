@@ -22,7 +22,9 @@
 from util.auto_str import auto_str
 
 
-@auto_str  # this is an annotation that will create a full __str__ method for us to make logging more informative.
+# this is an annotation that will create a full __str__ method
+# for us to make logging more informative.
+@auto_str
 class PlayerRowInfo:
     """
     A class used to represent the given player data from the
@@ -76,7 +78,8 @@ class PlayerRowInfo:
         team: str
             The team the player belongs to
         injury: str
-            Any injury information for the given player if they are currently injured, blank otherwise
+            Any injury information for the given player if they are currently injured, blank
+            otherwise
         games_played: str
             The number of games the player has played so far this season
         minutes_per_game: str

@@ -1,3 +1,7 @@
+"""
+A script to scrape the Basketball monster rankings and update a google sheet with them.
+"""
+
 #  MIT License
 #
 #  Copyright (c) 2021 Nicholas Doglio

@@ -1,3 +1,6 @@
+"""
+A method to convert raw HTML player data into a data holding class.
+"""
 #  MIT License
 #
 #  Copyright (c) 2021 Nicholas Doglio

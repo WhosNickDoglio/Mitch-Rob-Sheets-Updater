@@ -1,3 +1,6 @@
+"""
+A client that scrapes the Basketball Monster rankings.
+"""
 #  MIT License
 #
 #  Copyright (c) 2021 Nicholas Doglio
