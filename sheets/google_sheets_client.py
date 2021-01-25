@@ -27,7 +27,7 @@ SHEET_NAME = "Mitchell Robinson Fan Club"
 
 class GoogleSheetsClient:
     """
-    A class that is responsble for interacting the with Google Sheets API.
+    A class that is responsible for interacting the with Google Sheets API.
     """
 
     def __init__(self, filename: str):
