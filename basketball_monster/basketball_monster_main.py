@@ -26,6 +26,7 @@ A script to scrape the Basketball monster rankings and update a google sheet wit
 from basketball_monster.player_data_converter import convert_element_to_player_info
 from basketball_monster.scraper import BasketballMonsterWebScraper
 from sheets.google_sheets_client import GoogleSheetsClient
+from basketball_monster.empty_player import EMPTY_PLAYER
 
 
 def main():
@@ -40,7 +41,7 @@ def main():
     # Creates a class that will scrape the basketball monster rankings and pull that data.
     scraper = BasketballMonsterWebScraper()
 
-    ## Using the scraper we parse the player data we need.
+    # Using the scraper we parse the player data we need.
     data = scraper.parse_data()
 
     print("Pulling player data from HTML elements.")
@@ -48,6 +49,10 @@ def main():
     # The data pulled from the Basketball Monster website is raw and not formatted,
     # here we convert the raw data into data models that are easy to reason able and use.
     player_info = list(map(convert_element_to_player_info, data))
+
+    # In case a team doesn't have a full roster we need a default empty spot that won't
+    # break any formulas in the sheet.
+    player_info.append(EMPTY_PLAYER)
 
     num_of_players = len(player_info)
 
