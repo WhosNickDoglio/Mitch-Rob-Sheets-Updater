@@ -20,6 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 import gspread
+from gspread.models import Worksheet
 from sheets.player_row_info import PlayerRowInfo
 
 SHEET_NAME = "Mitchell Robinson Fan Club"
@@ -47,7 +48,7 @@ class GoogleSheetsClient:
 
         :param data: a list of player data
         """
-        worksheet = self.sheet.worksheet("Main Data")
+        worksheet = self.find_worksheet_by_id(796256127)
 
         current_cell_count = len(worksheet.get_all_records())
         print("Number of current player rows: " + str(current_cell_count))
@@ -63,3 +64,11 @@ class GoogleSheetsClient:
 
         # update the worksheet with player data
         worksheet.insert_rows(list_of_lists, 2)
+
+    def find_worksheet_by_id(self, sheet_id: int) -> Worksheet:
+        """
+
+        :param sheet_id: the Google worksheet ID for the requested Worksheet.
+        :return:
+        """
+        return next(sheet for sheet in self.sheet.worksheets() if sheet_id == sheet.id)
