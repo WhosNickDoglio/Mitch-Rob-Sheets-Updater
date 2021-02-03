@@ -16,8 +16,8 @@ jobs:
         with:
           python-version: '3.9'
       - name: Decrypt Secret
-          run: |
-            gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --output sheets/service_account.json secret.gpg
+        run: |
+          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --output sheets/service_account.json secret.gpg
       - name: Create Yahoo Access Key
         run: |
           gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.YAHOO_KEYS_PASSWORD }}" --output yahoo/.yahoofantasy yahoo.gpg
