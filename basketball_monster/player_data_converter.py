@@ -25,6 +25,7 @@ A method to convert raw HTML player data into a data holding class.
 
 from selenium.webdriver.remote.webelement import WebElement
 from sheets.player_row_info import PlayerRowInfo
+from sheets.name_normalizier import normalize_player_name
 
 
 def convert_element_to_player_info(element: WebElement) -> PlayerRowInfo:
@@ -37,7 +38,7 @@ def convert_element_to_player_info(element: WebElement) -> PlayerRowInfo:
     data_columns = element.find_elements_by_tag_name("td")
 
     player = PlayerRowInfo(
-        name=data_columns[3].text,
+        name=normalize_player_name(data_columns[3].text),
         rank=int(data_columns[1].text),
         value=float(data_columns[2].text),
         position=data_columns[6].text,
