@@ -23,14 +23,15 @@
 from sheets.google_sheets_client import GoogleSheetsClient
 from yahoofantasy import Context
 from yahoo.constants import SHEET_ID_DICT
+import sys
 
 SPLIT = "402.l.3448.t."
 
 
-def main():
+def main(client_id: str, client_secret: str, refresh_toke: str):
     client = GoogleSheetsClient(filename="sheets/service_account.json")
 
-    ctx = Context()
+    ctx = Context(client_id=client_id, client_secret=client_secret, refresh_token=refresh_toke)
     league = ctx.get_leagues("nba", 2020)[0]
 
     for team in league.teams():
@@ -42,4 +43,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(client_id=sys.argv[1], client_secret=sys.argv[2], refresh_toke=sys.argv[3])

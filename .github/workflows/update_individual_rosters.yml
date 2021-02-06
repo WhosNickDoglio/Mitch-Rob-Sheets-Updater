@@ -19,12 +19,10 @@ jobs:
           python-version: '3.9'
       - name: Decrypt Secrets
         run: |
-          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.YAHOO_KEYS_PASSWORD }}" --output yahoo/.yahoofantasy yahoo.gpg
           gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --output sheets/service_account.json secret.gpg
-          realpath yahoo/.yahoofantasy
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run script to update Sheets
-        run: python -m yahoo.update_individual_rosters_main
+        run: python -m yahoo.update_individual_rosters_main  ${{ secrets.YAHOO_CLIENT_ID }}" ${{ secrets.YAHOO_CLIENT_SECRET }}" ${{ secrets.YAHOO_REFRESH_TOKEN }}"
