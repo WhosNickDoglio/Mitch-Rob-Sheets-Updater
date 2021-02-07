@@ -1,8 +1,6 @@
 name: Update Rosters
 
 on:
-  push:
-    branches: [ trunk ]
   schedule:
     - cron: "0 9 * * *"
 
