@@ -25,4 +25,4 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run script to update Sheets
-        run: python -m yahoo.update_individual_rosters_main  ${{ secrets.YAHOO_CLIENT_ID }}" ${{ secrets.YAHOO_CLIENT_SECRET }}" ${{ secrets.YAHOO_REFRESH_TOKEN }}"
+        run: python -m yahoo.update_individual_rosters_main  ${{ secrets.YAHOO_CLIENT_ID }} ${{ secrets.YAHOO_CLIENT_SECRET }} ${{ secrets.YAHOO_REFRESH_TOKEN }}
