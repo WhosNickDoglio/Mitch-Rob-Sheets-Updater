@@ -23,20 +23,22 @@
 LEAGUE_ID = "3448"
 
 # key is Yahoo Team ID, value is Google Sheets ID for that team
-SHEET_ID_DICT = dict([
-    (1, 879110572),  # Splash Bros
-    (2, 546476331),  # Big Ballers
-    (3, 96271169),  # Fournier's Gangrene
-    (4, 452309135),  # Beijing Ducks
-    (5, 1714864404),  # NOVAKANE & HATRED
-    (6, 449504790),  # Thomas Ron Baker
-    (7, 656144624),  # Rondo Rousey
-    (8, 529060601),  # Spanish Inquisition
-    (9, 981592823),  # Team Duncan
-    (10, 1356287908),  # Sexland
-    (11, 1711300261),  # The White Walkers
-    (12, 1559097948),  # MEET THE FLOPPERS
-])
+SHEET_ID_DICT = dict(
+    [
+        (1, 879110572),  # Splash Bros
+        (2, 546476331),  # Big Ballers
+        (3, 96271169),  # Fournier's Gangrene
+        (4, 452309135),  # Beijing Ducks
+        (5, 1714864404),  # NOVAKANE & HATRED
+        (6, 449504790),  # Thomas Ron Baker
+        (7, 656144624),  # Rondo Rousey
+        (8, 529060601),  # Spanish Inquisition
+        (9, 981592823),  # Team Duncan
+        (10, 1356287908),  # Sexland
+        (11, 1711300261),  # The White Walkers
+        (12, 1559097948),  # MEET THE FLOPPERS
+    ]
+)
 
 ACTIVE_PLAYER_RANGE = "A3:A15"
 

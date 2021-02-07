@@ -31,16 +31,25 @@ SPLIT = "402.l.3448.t."
 def main(client_id: str, client_secret: str, refresh_toke: str):
     client = GoogleSheetsClient(filename="sheets/service_account.json")
 
-    ctx = Context(client_id=client_id, client_secret=client_secret, refresh_token=refresh_toke)
+    ctx = Context(
+        client_id=client_id, client_secret=client_secret, refresh_token=refresh_toke
+    )
     league = ctx.get_leagues("nba", 2020)[0]
 
     for team in league.teams():
         team_id = team.id
-        worksheet = client.find_worksheet_by_id(SHEET_ID_DICT[int(team_id.split(SPLIT, 1)[1])])
+        worksheet = client.find_worksheet_by_id(
+            SHEET_ID_DICT[int(team_id.split(SPLIT, 1)[1])]
+        )
         if team.name.lower() != worksheet.title.lower():
-            print("Updating sheet name. Old name: " + worksheet.title + " New name: " + team.name)
+            print(
+                "Updating sheet name. Old name: "
+                + worksheet.title
+                + " New name: "
+                + team.name
+            )
             worksheet.update_title(team.name)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main(client_id=sys.argv[1], client_secret=sys.argv[2], refresh_toke=sys.argv[3])

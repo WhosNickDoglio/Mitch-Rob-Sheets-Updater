@@ -25,7 +25,6 @@ from util.auto_str import auto_str
 
 @auto_str
 class RosterSlotInfo:
-
     def __init__(self, name: str, is_on_injury_list: bool):
         """
         Creates an instance of RosterSlotInfo

@@ -20,6 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+
 def normalize_player_name(name: str) -> str:
     # remove all periods from name
     name_without_periods = name.replace(".", "")
@@ -30,6 +31,7 @@ def normalize_player_name(name: str) -> str:
         return name_without_periods.replace(" IV", "")
     else:
         return name_without_periods
+
 
 # Trouble names so far
 # Lonnie Walker IV
