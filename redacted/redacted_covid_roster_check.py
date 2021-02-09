@@ -45,7 +45,7 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
 
     league = ctx.get_leagues("nba", 2020)[1]
 
-    report_str = ''
+    report_str = 'COVID ROSTER REPORT: \n'
     for team in league.teams():
         roster_info = list(map(player_to_roster_slot, team.roster().players))
 
@@ -58,7 +58,9 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
             len(injured_players)) + "\n"
 
         if len(active_players) == 17:
-            report_str += "Team " + team.name + " is using all roster spots, check if they have COVID players. \n"
+            report_str += "Team " + team.name + " is using all roster spots, check if they have COVID players. \n\n"
+        else:
+            report_str += "\n"
 
     print(report_str)
     file.write(report_str)
