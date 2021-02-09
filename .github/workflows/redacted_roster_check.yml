@@ -29,4 +29,5 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: ${{steps.report_step.outputs.report}}
+          args: "Hello Redacted"
+#          args: ${{steps.report_step.outputs.report}}
