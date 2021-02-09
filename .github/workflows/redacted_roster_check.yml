@@ -22,7 +22,7 @@ jobs:
       - name: Run script to check Redacted Rosters
         id: report_step
         run: |
-          output=`python -m redacted.redacted_covid_roster_check ${{ secrets.YAHOO_CLIENT_ID }} ${{ secrets.YAHOO_CLIENT_SECRET }} ${{ secrets.YAHOO_REFRESH_TOKEN }}`
+          output=$((python -m redacted.redacted_covid_roster_check ${{ secrets.YAHOO_CLIENT_ID }} ${{ secrets.YAHOO_CLIENT_SECRET }} ${{ secrets.YAHOO_REFRESH_TOKEN }}) 2> &1)
           echo ::set-output=report::output
       - name: Send Discord Notifcation
         env:
