@@ -23,10 +23,10 @@ jobs:
         id: report_step
         run: |
           output=`python -m redacted.redacted_covid_roster_check ${{ secrets.YAHOO_CLIENT_ID }} ${{ secrets.YAHOO_CLIENT_SECRET }} ${{ secrets.YAHOO_REFRESH_TOKEN }}`
-          echo "::set-output=report::output"
+          echo ::set-output=report::output
       - name: Send Discord Notifcation
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: ${{steps.report_step.outputs.report}}
+          args: ${{ steps.report_step.outputs.report }}
