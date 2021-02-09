@@ -55,7 +55,7 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
         injured_players = list(filter(lambda slot: slot.is_on_injury_list, roster_info))
 
         report_str += team.name + ": \n" + "Current active roster size: " + str(
-            len(active_players)) + " players on IL: " + str(
+            len(active_players)) + "\n" + "Players on IL: " + str(
             len(injured_players)) + "\n"
 
         if len(active_players) == 17:
