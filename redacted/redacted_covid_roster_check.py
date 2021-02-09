@@ -64,4 +64,4 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
 
 
 if __name__ == "__main__":
-    main()
+    main(client_id=sys.argv[1], client_secret=sys.argv[2], refresh_toke=sys.argv[3])
