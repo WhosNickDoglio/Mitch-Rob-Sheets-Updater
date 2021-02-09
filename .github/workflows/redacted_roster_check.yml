@@ -2,7 +2,8 @@ name: Redacted COVID Check
 
 on:
   schedule:
-    - cron: "00 18 * * *"
+    - cron: "00 8 * * *"
+    - cron: "00 11 * * *"
 
 jobs:
   build:
