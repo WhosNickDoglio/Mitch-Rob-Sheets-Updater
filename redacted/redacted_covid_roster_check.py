@@ -54,13 +54,11 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
         )
         injured_players = list(filter(lambda slot: slot.is_on_injury_list, roster_info))
 
-        report_str += team.name + " current active roster size: " + str(len(active_players)) + " players on IL: " + str(
+        report_str += team.name + ": \n current active roster size: " + str(len(active_players)) + " players on IL: " + str(
             len(injured_players)) + "\n"
 
         if len(active_players) == 17:
-            report_str += "Team " + team.name + " is using all roster spots, check if they have COVID players. \n\n"
-        else:
-            report_str += "\n"
+            report_str += "Team " + team.name + " is using all roster spots, check if they have COVID players. \n"
 
     print(report_str)
     file.write(report_str)
