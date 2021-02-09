@@ -21,8 +21,8 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run script to check Redacted Rosters
         run: |
-        chmod +x .github/scripts/redacted.sh
-        .github/scripts/redacted.sh
+         chmod +x .github/scripts/redacted.sh
+         .github/scripts/redacted.sh
       - name: Send Discord Notifcation
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
