@@ -37,6 +37,8 @@ import sys
 
 
 def main(client_id: str, client_secret: str, refresh_toke: str):
+    file = open("roster_report.txt", "w")
+
     ctx = Context(
         client_id=client_id, client_secret=client_secret, refresh_token=refresh_toke
     )
@@ -59,8 +61,8 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
             report_str += "Team " + team.name + " is using all roster spots, check if they have COVID players. \n"
 
     print(report_str)
-    sys.stdout.write(report_str)
-    sys.exit(0)
+    file.write(report_str)
+    file.close()
 
 
 if __name__ == "__main__":
