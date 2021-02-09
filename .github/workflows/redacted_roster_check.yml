@@ -1,8 +1,8 @@
 name: Redacted COVID Check
 
 on:
-  push:
-    branches: [ trunk ]
+  schedule:
+    - cron: "00 18 * * *"
 
 jobs:
   build:
