@@ -29,6 +29,8 @@ def normalize_player_name(name: str) -> str:
         return name_without_periods.replace(" Jr", "")
     elif name_without_periods == "Lonnie Walker IV":
         return name_without_periods.replace(" IV", "")
+    elif name_without_periods == "Marcus Morris Sr":
+        return name_without_periods.replace(" Sr", "")
     else:
         return name_without_periods
 
@@ -38,3 +40,4 @@ def normalize_player_name(name: str) -> str:
 # Otto Porter Jr
 # R.J. Barrett
 # O.G. Anonoby
+# Marcus Morris Sr.
