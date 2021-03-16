@@ -22,20 +22,27 @@
 
 
 def normalize_player_name(name: str) -> str:
+    roman_numerals = [" I", " II", " III", " IV", " V", " VI"]
+    suffixes = [" Jr", " Sr", " Jr.", " Sr."]
+    blank = ""
+
     # remove all periods from name
-    name_without_periods = name.replace(".", "")
+    cleaned_up_name = name.replace(".", "")
 
-    if name_without_periods == "Otto Porter Jr":
-        return name_without_periods.replace(" Jr", "")
-    elif name_without_periods == "Lonnie Walker IV":
-        return name_without_periods.replace(" IV", "")
-    elif name_without_periods == "Marcus Morris Sr":
-        return name_without_periods.replace(" Sr", "")
-    elif name_without_periods == "Derrick Jones Jr":
-        return name_without_periods.replace(" Jr", "")
+    # Remove all roman numerals
+    for roman in roman_numerals:
+        if roman in cleaned_up_name:
+            cleaned_up_name = cleaned_up_name.replace(roman, blank)
+
+    # Remove all suffixes (Jr. Sr, etc)
+    for suffix in suffixes:
+        if suffix in cleaned_up_name:
+            cleaned_up_name = cleaned_up_name.replace(suffix, blank)
+
+    if cleaned_up_name == "KJ Martin":
+        return "Kenyon Martin"
     else:
-        return name_without_periods
-
+        return cleaned_up_name
 
 # Trouble names so far
 # Lonnie Walker IV
@@ -44,3 +51,5 @@ def normalize_player_name(name: str) -> str:
 # O.G. Anonoby
 # Marcus Morris Sr
 # Derrick Jones Jr
+# Kevin Porter Jr
+# KJ Martin
