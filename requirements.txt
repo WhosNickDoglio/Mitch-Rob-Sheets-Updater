@@ -1,5 +1,5 @@
 selenium==3.141.0
-gspread==3.6.0
+gspread==4.0.1
 pylint
 black
 yahoofantasy==1.2.1
