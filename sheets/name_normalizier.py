@@ -22,7 +22,7 @@
 
 
 def normalize_player_name(name: str) -> str:
-    roman_numerals = [" I", " II", " III", " IV", " V", " VI"]
+    roman_numerals = [" I", " II", " III", " IV"]
     suffixes = [" Jr", " Sr", " Jr.", " Sr."]
     blank = ""
 
