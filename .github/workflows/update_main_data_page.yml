@@ -1,33 +1,33 @@
-#name: Update Main Data Page
-#
-#on:
-#  schedule:
-#    - cron: "0 10 * * *"
-#
-#jobs:
-#  build:
-#
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Set up Python 3.9
-#        uses: actions/setup-python@v2
-#        with:
-#          python-version: '3.9'
-#      - name: Decrypt Secret
-#        run: |
-#          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --output sheets/service_account.json secret.gpg
-#      - name: Install dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-#      - name: Install GeckoDriver
-#        run: |
-#          wget https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-linux64.tar.gz
-#          mkdir geckodriver
-#          tar -xzf geckodriver-v0.28.0-linux64.tar.gz -C geckodriver
-#          export PATH=$PATH:$PWD/geckodriver
-#      - name: Run script to update Sheets
-#        run: python -m basketball_monster.basketball_monster_main
-#
+name: Update Main Data Page
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Decrypt Secret
+        run: |
+          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.ACCOUNT_SERVICE_PASSWORD }}" --output sheets/service_account.json secret.gpg
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install GeckoDriver
+        run: |
+          wget https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-linux64.tar.gz
+          mkdir geckodriver
+          tar -xzf geckodriver-v0.28.0-linux64.tar.gz -C geckodriver
+          export PATH=$PATH:$PWD/geckodriver
+      - name: Run script to update Sheets
+        run: python -m basketball_monster.basketball_monster_main
+
