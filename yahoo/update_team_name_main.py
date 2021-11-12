@@ -25,7 +25,7 @@ from yahoofantasy import Context
 from yahoo.constants import SHEET_ID_DICT
 import sys
 
-SPLIT = "402.l.3448.t."
+SPLIT = "410.l.1540.t."
 
 
 def main(client_id: str, client_secret: str, refresh_toke: str):
@@ -34,7 +34,7 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
     ctx = Context(
         client_id=client_id, client_secret=client_secret, refresh_token=refresh_toke
     )
-    league = ctx.get_leagues("nba", 2020)[0]
+    league = ctx.get_leagues("nba", 2021)[0]
 
     for team in league.teams():
         team_id = team.id
