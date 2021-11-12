@@ -30,7 +30,7 @@ from yahoo.constants import INJURED_PLAYER_RANGE
 from basketball_monster.empty_player import EMPTY_PLAYER
 import sys
 
-SPLIT = "402.l.3448.t."
+SPLIT = "410.l.1540.t."
 
 
 def main(client_id: str, client_secret: str, refresh_toke: str):
@@ -39,7 +39,7 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
     ctx = Context(
         client_id=client_id, client_secret=client_secret, refresh_token=refresh_toke
     )
-    league = ctx.get_leagues("nba", 2020)[0]
+    league = ctx.get_leagues("nba", 2021)[0]
 
     for team in league.teams():
         print(team.name + " " + team.id)
@@ -87,6 +87,7 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
                 "major_dimension": "COLUMNS",
             },
             {
+                # TODO for some reason this is broken?
                 "range": "B18:B",
                 "values": [injured_players_names],
                 "major_dimension": "COLUMNS",
