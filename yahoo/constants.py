@@ -20,7 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-LEAGUE_ID = "3448"
+LEAGUE_ID = "1540"
 
 # key is Yahoo Team ID, value is Google Sheets ID for that team
 SHEET_ID_DICT = dict(
@@ -37,6 +37,8 @@ SHEET_ID_DICT = dict(
         (10, 1356287908),  # Sexland
         (11, 1711300261),  # The White Walkers
         (12, 1559097948),  # MEET THE FLOPPERS
+        (13, 989358989),  # Bouknight’s Army
+        (14, 885856173),  # Billy Crystal Meth
     ]
 )
 
