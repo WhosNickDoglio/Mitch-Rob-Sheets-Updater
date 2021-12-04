@@ -20,7 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 import gspread
-from gspread.models import Worksheet
+from gspread import Worksheet
 from sheets.player_row_info import PlayerRowInfo
 
 SHEET_NAME = "Mitchell Robinson Fan Club"
