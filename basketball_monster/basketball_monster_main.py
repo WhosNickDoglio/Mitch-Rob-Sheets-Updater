@@ -27,6 +27,8 @@ from basketball_monster.player_data_converter import convert_element_to_player_i
 from basketball_monster.scraper import BasketballMonsterWebScraper
 from sheets.google_sheets_client import GoogleSheetsClient
 from basketball_monster.empty_player import EMPTY_PLAYER
+from basketball_monster.empty_player import PLAYERS_WHO_HAVE_NOT_PLAYED_A_GAME
+from basketball_monster.empty_player import create_empty_player
 
 
 def main():
@@ -49,6 +51,13 @@ def main():
     # The data pulled from the Basketball Monster website is raw and not formatted,
     # here we convert the raw data into data models that are easy to reason able and use.
     player_info = list(map(convert_element_to_player_info, data))
+
+    # TODO I'm not sure if this works
+    missing_injured_players = list(
+        set(list(map(create_empty_player, PLAYERS_WHO_HAVE_NOT_PLAYED_A_GAME))) - set(player_info))
+
+    for player in missing_injured_players:
+        player_info.append(player)
 
     # In case a team doesn't have a full roster we need a default empty spot that won't
     # break any formulas in the sheet.

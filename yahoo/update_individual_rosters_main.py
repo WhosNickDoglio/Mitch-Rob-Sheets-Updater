@@ -87,7 +87,6 @@ def main(client_id: str, client_secret: str, refresh_toke: str):
                 "major_dimension": "COLUMNS",
             },
             {
-                # TODO for some reason this is broken?
                 "range": "B18:B",
                 "values": [injured_players_names],
                 "major_dimension": "COLUMNS",

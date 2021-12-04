@@ -22,8 +22,7 @@
 
 
 def normalize_player_name(name: str) -> str:
-    # TODO this still doesn't work, it will break last names that start with I (Isaac, Irving, etc)
-    roman_numerals = [" I", " II", " III", " IV"]
+    roman_numerals = [" II", " III", " IV"]
     suffixes = [" Jr", " Sr", " Jr.", " Sr."]
     blank = ""
 
