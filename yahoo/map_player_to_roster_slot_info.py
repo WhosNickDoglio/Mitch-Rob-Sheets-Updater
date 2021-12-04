@@ -27,5 +27,5 @@ from yahoo.roster_info import RosterSlotInfo
 def player_to_roster_slot(current_player: player) -> RosterSlotInfo:
     return RosterSlotInfo(
         name=current_player.name.full,
-        is_on_injury_list=bool(current_player.selected_position.position == "IL"),
+        is_on_injury_list=bool(current_player.selected_position.position == "IL+"),
     )
